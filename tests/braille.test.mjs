@@ -23,3 +23,8 @@ test("decodes braille 'b'", () => {
 test("decodes braille 'c'", () => {
   expect(decodeBraille("100100")).toBe("c");
 });
+
+test("decodes multiple braille characters", () => {
+  const input = "100000110000100100"; // a b c
+  expect(decodeBraille(input)).toBe("abc");
+});
