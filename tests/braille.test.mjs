@@ -52,6 +52,46 @@ test("decodes braille 'j'", () => {
   expect(decodeBraille("010110")).toBe("j");
 });
 
+test("decodes braille 'k'", () => {
+  expect(decodeBraille("101000")).toBe("k");
+});
+
+test("decodes braille 'l'", () => {
+  expect(decodeBraille("111000")).toBe("l");
+});
+
+test("decodes braille 'm'", () => {
+  expect(decodeBraille("101100")).toBe("m");
+});
+
+test("decodes braille 'n'", () => {
+  expect(decodeBraille("101110")).toBe("n");
+});
+
+test("decodes braille 'o'", () => {
+  expect(decodeBraille("101010")).toBe("o");
+});
+
+test("decodes braille 'p'", () => {
+  expect(decodeBraille("111100")).toBe("p");
+});
+
+test("decodes braille 'q'", () => {
+  expect(decodeBraille("111110")).toBe("q");
+});
+
+test("decodes braille 'r'", () => {
+  expect(decodeBraille("111010")).toBe("r");
+});
+
+test("decodes braille 's'", () => {
+  expect(decodeBraille("011100")).toBe("s");
+});
+
+test("decodes braille 't'", () => {
+  expect(decodeBraille("011110")).toBe("t");
+});
+
 test("decodes multiple braille characters", () => {
   const input = "100000110000100100"; // a b c
   expect(decodeBraille(input)).toBe("abc");
