@@ -28,6 +28,12 @@ export function decodeBraille(input) {
     111010: "r",
     "011100": "s",
     "011110": "t",
+    101001: "u",
+    111001: "v",
+    "010111": "w", // special case
+    101101: "x",
+    101111: "y",
+    101011: "z",
   };
 
   return chunks.map((chunk) => brailleMap[chunk] || "?").join("");
