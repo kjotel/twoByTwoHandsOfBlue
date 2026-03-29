@@ -24,6 +24,34 @@ test("decodes braille 'c'", () => {
   expect(decodeBraille("100100")).toBe("c");
 });
 
+test("decodes braille 'd'", () => {
+  expect(decodeBraille("100110")).toBe("d");
+});
+
+test("decodes braille 'e'", () => {
+  expect(decodeBraille("100010")).toBe("e");
+});
+
+test("decodes braille 'f'", () => {
+  expect(decodeBraille("110100")).toBe("f");
+});
+
+test("decodes braille 'g'", () => {
+  expect(decodeBraille("110110")).toBe("g");
+});
+
+test("decodes braille 'h'", () => {
+  expect(decodeBraille("110010")).toBe("h");
+});
+
+test("decodes braille 'i'", () => {
+  expect(decodeBraille("010100")).toBe("i");
+});
+
+test("decodes braille 'j'", () => {
+  expect(decodeBraille("010110")).toBe("j");
+});
+
 test("decodes multiple braille characters", () => {
   const input = "100000110000100100"; // a b c
   expect(decodeBraille(input)).toBe("abc");
