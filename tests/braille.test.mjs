@@ -15,3 +15,11 @@ test("splits input into 6-bit chunks internally", () => {
 test("decodes braille 'a'", () => {
   expect(decodeBraille("100000")).toBe("a");
 });
+
+test("decodes braille 'b'", () => {
+  expect(decodeBraille("110000")).toBe("b");
+});
+
+test("decodes braille 'c'", () => {
+  expect(decodeBraille("100100")).toBe("c");
+});

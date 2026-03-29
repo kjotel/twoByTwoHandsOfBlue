@@ -9,6 +9,8 @@ export function decodeBraille(input) {
 
   const brailleMap = {
     100000: "a",
+    110000: "b",
+    100100: "c",
   };
 
   return chunks.map((chunk) => brailleMap[chunk] || "?").join("");
