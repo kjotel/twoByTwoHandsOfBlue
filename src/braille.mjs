@@ -30,11 +30,30 @@ export function decodeBraille(input) {
     "011110": "t",
     101001: "u",
     111001: "v",
-    "010111": "w", // special case
+    "010111": "w",
     101101: "x",
     101111: "y",
     101011: "z",
   };
 
-  return chunks.map((chunk) => brailleMap[chunk] || "?").join("");
+  let result = "";
+  let capitalizeNext = false;
+
+  for (let chunk of chunks) {
+    if (chunk === "000001") {
+      capitalizeNext = true;
+      continue;
+    }
+
+    let letter = brailleMap[chunk] || "?";
+
+    if (capitalizeNext) {
+      letter = letter.toUpperCase();
+      capitalizeNext = false;
+    }
+
+    result += letter;
+  }
+
+  return result;
 }

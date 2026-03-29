@@ -116,6 +116,19 @@ test("decodes braille 'z'", () => {
   expect(decodeBraille("101011")).toBe("z");
 });
 
+test("decodes capital A", () => {
+  expect(decodeBraille("000001100000")).toBe("A");
+});
+
+test("decodes capital B", () => {
+  expect(decodeBraille("000001110000")).toBe("B");
+});
+
+test("decodes mixed lowercase and uppercase", () => {
+  const input = "100000000001110000"; // a + B
+  expect(decodeBraille(input)).toBe("aB");
+});
+
 test("decodes multiple braille characters", () => {
   const input = "100000110000100100"; // a b c
   expect(decodeBraille(input)).toBe("abc");
