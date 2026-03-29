@@ -137,3 +137,17 @@ test("decodes multiple braille characters", () => {
 test("returns '?' for unknown braille pattern", () => {
   expect(decodeBraille("000000")).toBe("?");
 });
+
+test("decodes number 1", () => {
+  expect(decodeBraille("001111100000")).toBe("1");
+});
+
+test("decodes number sequence 123", () => {
+  const input = "001111100000110000100100";
+  expect(decodeBraille(input)).toBe("123");
+});
+
+test("mix of letters and numbers", () => {
+  const input = "100000001111100000"; // a + 1
+  expect(decodeBraille(input)).toBe("a1");
+});
