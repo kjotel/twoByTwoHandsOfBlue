@@ -12,9 +12,6 @@ test("splits input into 6-bit chunks internally", () => {
   expect(typeof result).toBe("string");
 });
 
-test("splits into correct 6-bit chunks", () => {
-  const input = "100000101110";
-  const result = decodeBraille(input);
-
-  expect(result).toBe("100000 101110");
+test("decodes braille 'a'", () => {
+  expect(decodeBraille("100000")).toBe("a");
 });

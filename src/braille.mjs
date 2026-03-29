@@ -7,5 +7,9 @@ export function decodeBraille(input) {
     chunks.push(input.slice(i, i + 6));
   }
 
-  return chunks.join(" ");
+  const brailleMap = {
+    100000: "a",
+  };
+
+  return chunks.map((chunk) => brailleMap[chunk] || "?").join("");
 }
