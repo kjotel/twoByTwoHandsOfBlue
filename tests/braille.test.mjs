@@ -28,3 +28,7 @@ test("decodes multiple braille characters", () => {
   const input = "100000110000100100"; // a b c
   expect(decodeBraille(input)).toBe("abc");
 });
+
+test("returns '?' for unknown braille pattern", () => {
+  expect(decodeBraille("000000")).toBe("?");
+});
