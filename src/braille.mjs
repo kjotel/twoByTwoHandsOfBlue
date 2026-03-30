@@ -2,13 +2,11 @@ export function decodeBraille(input) {
   if (input === "") return "";
 
   // Split into 6-bit chunks
-  const chunks = [];
-  for (let i = 0; i < input.length; i += 6) {
-    chunks.push(input.slice(i, i + 6));
-  }
+  const chunks = input.match(/.{1,6}/g) || [];
 
   // Letter mapping
   const brailleMap = {
+    // Letters
     100000: "a",
     110000: "b",
     100100: "c",
@@ -35,6 +33,10 @@ export function decodeBraille(input) {
     101101: "x",
     101111: "y",
     101011: "z",
+
+    // Base64 required symbols
+    "010011": "+", // dot → +
+    "001100": "/", // slash
   };
 
   // Number mapping (a–j → 1–0)
@@ -56,26 +58,37 @@ export function decodeBraille(input) {
   let numberMode = false;
 
   for (let chunk of chunks) {
-    // Capital indicator
+    // 1. Capital indicator
     if (chunk === "000001") {
       capitalizeNext = true;
       continue;
     }
 
-    // Number indicator
+    // 2. Number indicator
     if (chunk === "001111") {
       numberMode = true;
       continue;
     }
 
-    let letter = brailleMap[chunk] || "?";
-
-    // Apply number mode
-    if (numberMode && numberMap[letter]) {
-      letter = numberMap[letter];
+    // 3. NOW check mapping
+    if (!brailleMap[chunk]) {
+      console.log("UNKNOWN:", chunk);
+      result += "?";
+      continue;
     }
 
-    // Apply capitalization
+    let letter = brailleMap[chunk];
+
+    // 4. Number mode logic
+    if (numberMode) {
+      if (numberMap[letter]) {
+        letter = numberMap[letter];
+      } else {
+        numberMode = false;
+      }
+    }
+
+    // 5. Capital logic
     if (capitalizeNext) {
       letter = letter.toUpperCase();
       capitalizeNext = false;
@@ -84,5 +97,5 @@ export function decodeBraille(input) {
     result += letter;
   }
 
-  return result;
+  return result.replace(/\s+/g, "");
 }
