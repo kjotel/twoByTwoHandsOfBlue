@@ -35,11 +35,11 @@ export function decodeBraille(input) {
     101011: "z",
 
     // Base64 required symbols
-    "010011": "+", // dot → +
-    "001100": "/", // slash
+    "010011": "+", 
+    "001100": "/", 
   };
 
-  // Number mapping (a–j → 1–0)
+  // Number mapping (a–j > 1–0)
   const numberMap = {
     a: "1",
     b: "2",

@@ -17,7 +17,7 @@ a missing semi�olon, oh��h� pain!
 i�δ��d��t, and now it runs...;�gain?
 (no, wai�� now it's broken in a new way.)
 
-Translated/Fixed
+Translated/Fixed manually
 
 the bug
 
