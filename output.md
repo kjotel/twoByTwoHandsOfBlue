@@ -1,4 +1,4 @@
-Output text straight from terminal (a bit garbled)
+Final Output Text:
 
 the�� g
 i��rote��aline of code��oday,
@@ -17,7 +17,7 @@ a missing semi�olon, oh��h� pain!
 i�δ��d��t, and now it runs...;�gain?
 (no, wai�� now it's broken in a new way.)
 
-Translated:
+Translated/Fixed
 
 the bug
 
